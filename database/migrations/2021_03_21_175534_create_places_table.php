@@ -17,7 +17,7 @@ class CreatePlacesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('image')->default('default.png');
+            $table->string('image')->default('default.jpg');
             $table->integer('category_id');
             $table->text('overview');
             $table->string('address');

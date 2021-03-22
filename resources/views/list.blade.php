@@ -8,6 +8,9 @@
             <div>
                 @forelse ($places as $place)
                     <div class="flex mb-5 bg-white">
+                        <div class="flex-none w-48 relative">
+                            <img src="{{$place->image}}" class="absolute inset-0 w-full object-cover" alt="">
+                        </div>
                         <div class="flex-auto p-6">
                             <div class="flex flex-wrap">
                                 <h1 class="flex-auto text-xl font-semibold">
