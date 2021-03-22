@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PlaceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/', [PlaceController::class, 'index'])->name('home');
