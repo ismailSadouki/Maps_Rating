@@ -7,7 +7,7 @@
         
         <div class="w-6/12">
 
-            <select name="category" class="p-1 mr-5 bg-gray-200 w-full rounded-md" name="category">
+            <select  class="p-1 mr-5 bg-gray-200 w-full rounded-md" name="category">
                 <option value="">حدد التصنيف</option>
             </select>
         </div>
@@ -19,3 +19,28 @@
        
     
 </form>
+<section class="m-auto text-center">
+    <div class="category mt-5">
+        @foreach ($categories as $category)
+            <li style="display: inline-block;
+            margin-bottom:5px;">
+                <a href="" class="bg-blue-900 hover:bg-gray-400" 
+                    style="border: none;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        color: #fff;
+                        font-weight: #000;
+                        padding: 5px 19px;
+                        display: inline-block;
+                        margin: 0 3px;
+                        -webkit-transition: 0.3s;
+                        -moz-transition: 0.3s;
+                        -o-transition: 0.3s;
+                        transition: 0.3s;
+                        cursor: pointer;">
+                    {{$category->title}}
+                </a>
+            </li>
+        @endforeach
+    </div>
+</section>
