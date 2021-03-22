@@ -17,6 +17,7 @@
         @livewireStyles
 
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
@@ -41,8 +42,35 @@
             </main>
         </div>
 
+        <footer class="flex justify-center p-5 " style="background:#0F203C;">
+            <a href="https://academy.hsoub.com" class="justify-self-center">
+                <img class="w-24"  src="https://academy.hsoub.com/uploads/monthly_2016_01/SiteLogo-346x108.png.dd3bdd5dfa0e4a7099ebc51f8484032e.png" alt="أكاديمية حسوب">
+            </a>
+        </footer>
+
         @stack('modals')
 
         @livewireScripts
+
+        <script>
+            $(function(){
+                $('#address').on('keyup',function() {
+                    var address = $(this).val();
+                    $('#address-list').fadeIn();
+
+                    $.ajax({
+                        url: "{{route('auto-complete')}}",
+                        type: "GET",
+                        data: {"address" : address}
+                    }).done(function(data) {
+                        $("#address-list").html(data);
+                    });
+                });
+                $('#address-list').on('click', 'li', function(){
+                    $('#address').val($(this).text());
+                    $('#address-list').fadeOut();
+                });
+            });
+        </script>
     </body>
 </html>

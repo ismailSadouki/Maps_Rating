@@ -12,4 +12,17 @@ class Place extends Model
     public function getImageAttribute($image){
         return asset('storage/images/'.$image);
     }
+
+    public function scopeSearch($query,$request)
+    {
+        if($request->category){
+            $query->whereCategory_id($request->category);
+        }
+
+        if($request->address){
+            $query->where('address', 'LIKE', '%'.$request->address.'%');
+        }
+
+        return $query;
+    }
 }
