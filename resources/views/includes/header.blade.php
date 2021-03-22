@@ -24,7 +24,7 @@
         @foreach ($categories as $category)
             <li style="display: inline-block;
             margin-bottom:5px;">
-                <a href="" class="bg-blue-900 hover:bg-gray-400" 
+                <a href="{{route('category.show',$category->slug)}}" class="bg-blue-900 hover:bg-gray-400" 
                     style="border: none;
                         border-radius: 5px;
                         font-size: 14px;
