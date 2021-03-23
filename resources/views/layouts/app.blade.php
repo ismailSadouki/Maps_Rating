@@ -13,13 +13,102 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="" crossorigin=""/>
 
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+       
         <script src="{{ mix('js/app.js') }}" defer></script>
 
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body{
+            font-family: customFont;
+            }
+
+            
+            .bg ,footer{
+            background:#0F203C;
+            }
+
+            .image{
+            height:200px;
+            }
+
+            .category ul li {
+            display: inline-block;
+            margin-bottom:5px;
+            }
+
+            .category ul li a {
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            font-weight: #000;
+            padding: 5px 19px;
+            display: inline-block;
+            margin: 0 3px;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+            cursor: pointer;
+            }
+
+
+            .v_line {
+            border-left: 1px solid rgb(240, 240, 235);
+            height: 190;
+            }
+            .rating  {
+            color:gold;
+            }
+
+            .rating > h5 {
+            color:rgb(87, 83, 83);
+            }
+
+            .rating:not(:checked) > input {
+            display:none;
+            cursor: pointer;
+            }
+
+            .rating:not(:checked) > label:before {
+            content: '★';
+            }
+
+            .rating:not(:checked) > label {
+            float:left;
+            cursor:pointer;
+            font-size:160%;
+            color:#ddd;
+            }
+
+            .rating:not(:checked) > label:hover,
+            .rating:not(:checked) > label:hover ~ label {
+            color: gold;
+            }
+
+            .rating > input:checked ~ label {
+            color: gold;
+            }
+
+            #place_url {
+            text-align: left;
+            unicode-bidi: plaintext;
+            }    
+
+            #addressList {
+            cursor:pointer;
+            }
+
+
+        </style>
     </head>
     <body class="font-sans antialiased" dir="rtl" style="font-family: customFont;">
         <x-jet-banner />

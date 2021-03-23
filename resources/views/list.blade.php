@@ -9,13 +9,18 @@
                 @forelse ($places as $place)
                     <div class="flex mb-5 bg-white">
                         <div class="flex-none w-48 relative">
-                            <img src="{{$place->image}}" class="absolute inset-0 w-full object-cover" alt="">
+                            
+                            <a href="{{route('place.show',[$place->id, $place->slug])}}">
+                                <img src="{{$place->image}}" class="absolute inset-0 w-full object-cover" alt="">
+                            </a>
                         </div>
                         <div class="flex-auto p-6">
                             <div class="flex flex-wrap">
-                                <h1 class="flex-auto text-xl font-semibold">
-                                    {{$place->name}}
-                                </h1>
+                                <a href="{{route('place.show',[$place->id, $place->slug])}}">
+                                    <h1 class="flex-auto text-xl font-semibold">
+                                        {{$place->name}}
+                                    </h1>
+                                </a>
                             </div>
 
                             <div class="flex space-x-3 mb-4 text-sm font-medium mt-5">
