@@ -26,7 +26,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_place');
     }
 
     /**
@@ -37,7 +37,15 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->image){
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->storeAs('public\images',$imageName);
+            $request->user()->places()->create($request->except('image') + ['image' => $imageName]);
+        } else {
+            $request->user()->places()->create($request->all());
+        }
+
+        return back();
     }
 
     /**
@@ -48,7 +56,10 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        $place = $place::withCount('reviews')->with('reviews.user')->find($place->id);
+        $place = $place::withCount('reviews')->with(['reviews' => function($query){
+            $query->with('user')
+                ->withCount('likes');
+        }])->find($place->id);
         $avg = $this->averageRating($place);
 
         $total = $avg['total'];

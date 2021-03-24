@@ -20,4 +20,9 @@ class Review extends Model
     {
         return ($this->service_rating + $this->cleanliness_rating + $this->quality_rating +$this->pricing_rating) / 4;
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'likes');
+    }
 }
