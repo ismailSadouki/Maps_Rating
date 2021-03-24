@@ -77,4 +77,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Place::class);
     }
+
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Place::class,'bookmarks');
+    }
+
+    public function alreadyBookmarked($place_id)
+    {
+        return $this->bookmarks()->wherePlace_id($place_id)->exists();
+    }
 }

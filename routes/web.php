@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LikeController;
@@ -30,6 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/search', [SearchController::class, 'autoComplete'])->name('auto-complete');
 Route::post('search', [SearchController::class, 'show'])->name('search');
 
+Route::get('bookmark/{place_id}',[BookmarkController::class, 'bookmark'])->name('bookmark');
+Route::get('bookmarks',[BookmarkController::class, 'getByUser'])->name('bookmarks');
+
 Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::resource('report', ContactController::class, ['only' => ['create', 'store']]);
@@ -43,3 +47,5 @@ Route::get('/{place}/{slug}',[PlaceController::class, 'show'])->name('place.show
 Route::post('review',[ReviewController::class, 'store'])->name('review.store');
 
 Route::post('like', [LikeController::class, 'store'])->name('like.store');
+
+

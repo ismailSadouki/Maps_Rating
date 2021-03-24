@@ -35,8 +35,8 @@
                 <hr/>
                 <div class="p-3">
                 @auth
-                    <a href="" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
-                        <span class=""><i class="fa fa-lg"></i></span> علامة مرجعية 
+                    <a href="{{ route('bookmark', $place->id) }}" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
+                        <span style="color: green" class=""><i class="fa {{ Auth::user()->alreadyBookmarked($place->id) ? 'fa-bookmark' : 'fa-bookmark-o' }} fa-lg"></i></span> علامة مرجعية 
                     </a>
                     <a href="{{ route('report.create') }}" class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
                         <span class=""><i class="fa fa-warning"></i></span>إبلاغ موقع مكرر 
