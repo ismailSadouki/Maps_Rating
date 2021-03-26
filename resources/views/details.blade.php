@@ -213,7 +213,7 @@
                             <x-alert color="red" message="{{ $message }}" />
                         @enderror
                         <input class="form-control" name="place_id" id="place_id" type="hidden" value="{{ $place->id }}">
-                        <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">إرسال</button>
+                        <button type="submit" @error('review')  autofocus  @enderror class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">إرسال</button>
                     </div>
                 </form>
             </div>

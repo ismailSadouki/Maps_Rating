@@ -65,6 +65,18 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- Role -->
+        <div class="col-span-6 sm:col-span-4 grid grid-cols-2">
+            <div>
+                <x-jet-label for="owner" value="{{__('صاحب الموقع')}}" />
+                <input type="radio"  name="role" id="owner" value="1" class="" wire:model.defer="state.role_id" />
+            </div>
+            <div>
+                <x-jet-label for="owner" value="{{__('مستخدم عادي')}}" />
+                <input type="radio"  name="role" id="user" value="2" class="" wire:model.defer="state.role_id" />
+            </div>
+        </div>
     </x-slot>
 
     <x-slot name="actions">

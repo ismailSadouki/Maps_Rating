@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class PlaceController extends Controller
 {
     use RateableTrait;
+    
+    public function __construct(Place $place)
+    {
+        $this->middleware('role', ['only' => 'create', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
